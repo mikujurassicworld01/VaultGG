@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamer Account Value</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="https://via.placeholder.com/80" id="avatar" alt="User">
+                <h3 id="nickname">HatsuneMiku01</h3>
+            </div>
+            
+            <nav class="nav-menu">
+                <button onclick="showTab('main-dash')" class="nav-link active"><i class="fas fa-home"></i> Dashboard</button>
+                <button onclick="showTab('library-tab')" class="nav-link"><i class="fas fa-gamepad"></i> Biblioteca</button>
+                <button onclick="showTab('import-tab')" class="nav-link"><i class="fab fa-steam"></i> Importar Steam</button>
+                <button class="nav-link"><i class="fas fa-users"></i> Amigos</button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <section id="main-dash" class="tab-content">
+                <div class="stats-header">
+                    <div class="stat-card main-score">
+                        <span>Gamer Score</span>
+                        <h1 id="score-val">0</h1>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-card"><span>Valor Total</span><p id="total-val">R$ 0,00</p></div>
+                        <div class="stat-card"><span>Horas</span><p>0h</p></div>
+                        <div class="stat-card"><span>Conquistas</span><p>0</p></div>
+                        <div class="stat-card"><span>Jogos</span><p>0</p></div>
+                    </div>
+                </div>
+
+                <div class="add-game-box">
+                    <h3><i class="fas fa-plus-circle"></i> Adicionar Jogo Manual</h3>
+                    <div class="form-row">
+                        <input type="text" id="m-name" placeholder="Nome do Jogo">
+                        <select id="m-platform">
+                            <option value="epic">Epic Games</option>
+                            <option value="emu">Emulador</option>
+                            <option value="pirata">Pirata / Outros</option>
+                        </select>
+                        <input type="number" id="m-price" placeholder="Preço R$">
+                        <input type="number" id="m-progress" placeholder="Progresso %">
+                        <button onclick="addManualGame()">Adicionar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="library-tab" class="tab-content hidden">
+                <h2>Minha Coleção</h2>
+                <div class="game-grid" id="game-list">
+                    </div>
+            </section>
+
+            <section id="import-tab" class="tab-content hidden">
+                <div class="import-card">
+                    <i class="fab fa-steam"></i>
+                    <h2>Conectar Steam</h2>
+                    <p>Insira seu SteamID64 para importar seus jogos automaticamente.</p>
+                    <input type="text" id="steam-id-input" placeholder="765611980XXXXXXXX">
+                    <button class="btn-import">Sincronizar Agora</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
