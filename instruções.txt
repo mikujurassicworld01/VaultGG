@@ -1,0 +1,89 @@
+====================================================
+  VaultGG — Versão Standalone (HTML / CSS / JS puro)
+====================================================
+
+ARQUIVOS:
+  index.html  — página principal do app
+  style.css   — todos os estilos
+  app.js      — toda a lógica do aplicativo
+  LEIA-ME.txt — este arquivo
+
+====================================================
+PASSO 1 — CONFIGURE A URL DA API
+====================================================
+
+Abra o index.html e localize este trecho perto do
+final do arquivo:
+
+  <script>
+    window.API_BASE = 'http://localhost:8080/api';
+  </script>
+
+Escolha uma das opções abaixo:
+
+OPÇÃO A — Usar o backend do Replit (mais fácil):
+  1. No Replit, clique em "Deploy" ou copie a URL
+     pública do projeto (termina em .replit.app)
+  2. Substitua o valor:
+     window.API_BASE = 'https://SEU-PROJETO.replit.app/api';
+
+OPÇÃO B — Rodar o backend localmente:
+  Deixe como está (http://localhost:8080/api) e
+  siga o Passo 2 abaixo.
+
+====================================================
+PASSO 2 — RODAR O BACKEND LOCALMENTE (OPÇÃO B)
+====================================================
+
+Requisitos: Node.js 18+, PostgreSQL
+
+  1. Na pasta do projeto Replit, instale dependências:
+       pnpm install
+
+  2. Configure as variáveis de ambiente:
+     Crie um arquivo .env na raiz com:
+       DATABASE_URL=postgresql://usuario:senha@localhost/vaultgg
+       STEAM_API_KEY=sua_chave_aqui
+       PORT=8080
+
+  3. Inicie o banco de dados PostgreSQL local
+
+  4. Rode o servidor:
+       cd artifacts/api-server
+       node dist/index.mjs
+
+  5. O backend estará em http://localhost:8080
+
+====================================================
+PASSO 3 — ABRIR O FRONTEND NO VSCODE
+====================================================
+
+  1. Abra esta pasta no VSCode:
+       File > Open Folder > selecione a pasta "vaultgg"
+
+  2. Instale a extensão "Live Server":
+       Ctrl+Shift+X > pesquise "Live Server" (Ritwick Dey)
+
+  3. Clique com botão direito em index.html
+       > "Open with Live Server"
+
+  4. O app abrirá em http://127.0.0.1:5500
+
+====================================================
+ERRO "STEAM_API_KEY não configurada"
+====================================================
+  Se aparecer esse erro, o backend está rodando mas
+  sem a chave do Steam configurada.
+  Configure STEAM_API_KEY nas variáveis de ambiente
+  antes de iniciar o servidor.
+
+  Você pode obter uma chave grátis em:
+  https://steamcommunity.com/dev/apikey
+
+====================================================
+TECNOLOGIAS
+====================================================
+  Frontend: HTML5 + CSS3 + JavaScript puro (sem framework)
+  Backend:  Node.js + Express + PostgreSQL
+  API REST: /api/*
+====================================================
